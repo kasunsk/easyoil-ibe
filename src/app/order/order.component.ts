@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {OrderPlace} from "../_model/orderplace";
+import {Order} from "../_model/order";
+import {OrderService} from "../_service/order.service";
+import {Router} from "@angular/router";
+import {OrderPlaceResponse} from "../_model/orderplaceresponse";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-order',
@@ -8,15 +13,31 @@ import {OrderPlace} from "../_model/orderplace";
 })
 export class OrderComponent implements OnInit {
 
-  order : OrderPlace;
+  loading : boolean;
+  order : Order;
+  orderId : number;
+  orderPlacementSuccessUrl : string;
 
-  constructor() { }
+  constructor(private router:Router, private httpClient: HttpClient) { }
 
   ngOnInit() {
+    this.orderPlacementSuccessUrl = 'order/load';
   }
 
   placeOrder() {
-      
+    this.loading=true;
+    return this.httpClient.post(environment.api_url + '/order/place', this.order)
+      .subscribe(
+        data => {
+          const result = <number>data;
+          this.orderId = result;
+          this.loading=false;
+          this.router.navigate([this.orderPlacementSuccessUrl + this.orderId])
+        },
+        err => {
+          console.log("Error occurred");
+          this.loading=false;
+        })
   }
 
 }

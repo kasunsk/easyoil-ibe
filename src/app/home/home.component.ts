@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../_model/product";
-import {ProductService} from "../_service/product.service";
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   loading : boolean;
   orderPlacementUrl : string;
 
-  constructor(private productService : ProductService, private router: Router) { }
+  constructor(private router: Router, private httpClient:HttpClient) { }
 
   ngOnInit() {
     this.orderPlacementUrl = 'order/place/';
@@ -23,10 +24,10 @@ export class HomeComponent implements OnInit {
 
   loadAvailableProducts() {
     this.loading = true;
-    this.productService.getAll().subscribe(
+    this.httpClient.get(environment.api_url + '/sellitem/list').subscribe(
       data => {
-        console.log(data);
-        this.products = data;
+        const result = <Product[]>data;
+        this.products = result;
         this.loading = false;
       },
       error => {

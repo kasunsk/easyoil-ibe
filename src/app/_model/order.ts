@@ -1,6 +1,6 @@
 import {Customer} from "./customer";
 
-export class OrderPlace {
+export class Order {
   id:number;
   customer:Customer;
   orderItemId:number;

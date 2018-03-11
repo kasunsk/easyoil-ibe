@@ -7,10 +7,11 @@ import { HomeComponent } from './home/home.component';
 import {HttpModule} from "@angular/http";
 import {AppRoutingModule} from "./app.routing";
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
-import {ProductService} from "./_service/product.service";
 import { HeaderComponent } from './header/header.component';
 import { OrderComponent } from './order/order.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { OrderResponseComponent } from './order-response/order-response.component';
 
 
 @NgModule({
@@ -18,16 +19,18 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    OrderComponent
+    OrderComponent,
+    OrderResponseComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
     // ReactiveFormsModule,
-    NgIdleKeepaliveModule.forRoot()
+    NgIdleKeepaliveModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [ProductService],
+  providers: [],
   bootstrap: [AppComponent, HomeComponent]
 })
 export class AppModule { }
