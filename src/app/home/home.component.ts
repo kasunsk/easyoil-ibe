@@ -12,10 +12,12 @@ export class HomeComponent implements OnInit {
 
   products : Product [];
   loading : boolean;
+  orderPlacementUrl : string;
 
   constructor(private productService : ProductService, private router: Router) { }
 
   ngOnInit() {
+    this.orderPlacementUrl = 'order/place/';
     this.loadAvailableProducts();
   }
 
@@ -30,6 +32,10 @@ export class HomeComponent implements OnInit {
       error => {
         this.loading = false;
       });
+  }
+
+  orderNow(productId) {
+    this.router.navigate([this.orderPlacementUrl + productId]);
   }
 
 }

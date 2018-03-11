@@ -7,7 +7,7 @@
       <tr><label>Price : </label>{{product.currency}} {{product.price}}</tr>
       <tr><label>Available : </label>{{product.availableAmount}}</tr>
       <tr><label>Available Until : </label>{{product.validUntil}}</tr>
-      <tr><button>Order Now</button></tr>
+      <tr><button class="btn btn-primary" (click)="this.orderNow(product.id)">Order Now</button></tr>
       </td>
       <td>
         <img align="middle" height="150" width="150" src={{product.image}} alt='image'>

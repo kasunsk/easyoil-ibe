@@ -9,18 +9,22 @@ import {AppRoutingModule} from "./app.routing";
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import {ProductService} from "./_service/product.service";
 import { HeaderComponent } from './header/header.component';
+import { OrderComponent } from './order/order.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
+    // ReactiveFormsModule,
     NgIdleKeepaliveModule.forRoot()
   ],
   providers: [ProductService],
