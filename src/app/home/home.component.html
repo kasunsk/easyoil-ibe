@@ -1,0 +1,17 @@
+<div class="container">
+  <div *ngFor="let product of products">
+    <table align="center" class="mat-table">
+      <td align="middle">
+      <tr>{{product.sellingItem}}</tr>
+      <tr>{{product.description}}</tr>
+      <tr><label>Price : </label>{{product.currency}} {{product.price}}</tr>
+      <tr><label>Available : </label>{{product.availableAmount}}</tr>
+      <tr><label>Available Until : </label>{{product.validUntil}}</tr>
+      <tr><button>Order Now</button></tr>
+      </td>
+      <td>
+        <img align="middle" height="150" width="150" src={{product.image}} alt='image'>
+      </td>
+    </table>
+  </div>
+</div>
