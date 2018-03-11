@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Order} from "../_model/order";
-import {OrderService} from "../_service/order.service";
 import {Router} from "@angular/router";
-import {OrderPlaceResponse} from "../_model/orderplaceresponse";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 
