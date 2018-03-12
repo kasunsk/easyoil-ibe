@@ -9,7 +9,7 @@ import {AppRoutingModule} from "./app.routing";
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { HeaderComponent } from './header/header.component';
 import { OrderComponent } from './order/order.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { OrderResponseComponent } from './order-response/order-response.component';
 
@@ -28,7 +28,8 @@ import { OrderResponseComponent } from './order-response/order-response.componen
     AppRoutingModule,
     // ReactiveFormsModule,
     NgIdleKeepaliveModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent, HomeComponent]
