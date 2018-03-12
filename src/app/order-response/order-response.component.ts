@@ -12,7 +12,7 @@ import {OrderPlaceResponse} from "../_model/orderplaceresponse";
 export class OrderResponseComponent implements OnInit {
 
   private sub: any;
-  orderId: number;
+  orderReference: string;
   order: OrderPlaceResponse;
   loading: boolean;
 
@@ -22,25 +22,22 @@ export class OrderResponseComponent implements OnInit {
   ngOnInit() {
 
     this.sub = this.route.params.subscribe(params => {
-      this.orderId = +params['orderId']; // (+) converts string 'id' to a number
+      this.orderReference = params['reference'];
 
-      // In a real app: dispatch action to load the details here.
+      this.loading = true;
+      return this.httpClient.get(environment.api_url + '/order/load/' + this.orderReference)
+        .subscribe(
+          data => {
+            const result = <OrderPlaceResponse>data;
+            this.order = result;
+            this.loading = false;
+          },
+          err => {
+            console.log(err);
+            console.log("Error occurred");
+            this.loading = false;
+          })
     });
-  }
-
-  loadOrder() {
-    this.loading = true;
-    return this.httpClient.post(environment.api_url + '/order/load', this.order)
-      .subscribe(
-        data => {
-          const result = <OrderPlaceResponse>data;
-          this.order = result;
-          this.loading = false;
-        },
-        err => {
-          console.log("Error occurred");
-          this.loading = false;
-        })
   }
 
 }

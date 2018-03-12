@@ -8,7 +8,7 @@ import {OrderResponseComponent} from "./order-response/order-response.component"
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'order/place/:productId', component: OrderComponent},
-  {path: 'order/load/:orderId', component: OrderResponseComponent},
+  {path: 'order/load/:reference', component: OrderResponseComponent},
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];

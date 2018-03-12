@@ -2,11 +2,13 @@
   <div class="row justify-content-center">
     <div class="col-lg-4 col-md-6 col-sm-8 col-8">
       <div class="card">
-        <div class="card-header">Booking</div>
+        <div class="card-header">Order Placement</div>
         <div class="card-body">
           <form name="form" (ngSubmit)="placeOrder()">
             <fieldset>
-              <legend>Place Order</legend>
+              <legend></legend>
+
+              <h3> {{product.sellingItem}} </h3>
 
               <div class="form-group">
                 <label for="name">Name</label>
@@ -35,7 +37,7 @@
 
               <div class="form-group">
                 <label for="price">Price</label>
-                <input type="label" id="price"  [(ngModel)]="order.price">
+                <input type="text" id="price" name="price" [(ngModel)]="order.price">
               </div>
 
               <!--- Terms and conditions Block --->
