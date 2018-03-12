@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   loadAvailableProducts() {
     this.loading = true;
-    this.httpClient.get(environment.api_url + '/sellitem/list').subscribe(
+    this.httpClient.get(environment.api_url + '/product/list').subscribe(
       data => {
         const result = <Product[]>data;
         this.products = result;
