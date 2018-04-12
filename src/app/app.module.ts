@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import {HttpModule} from "@angular/http";
-import {AppRoutingModule} from "./app.routing";
+import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app.routing';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { HeaderComponent } from './header/header.component';
 import { OrderComponent } from './order/order.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { OrderResponseComponent } from './order-response/order-response.component';
 
 
@@ -32,6 +32,7 @@ import { OrderResponseComponent } from './order-response/order-response.componen
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent, HomeComponent]
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

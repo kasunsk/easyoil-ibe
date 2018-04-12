@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
-import {OrderPlaceResponse} from "../_model/orderplaceresponse";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { OrderPlaceResponse } from '../model/orderplaceresponse';
 
 @Component({
   selector: 'app-order-response',
   templateUrl: './order-response.component.html',
-  styleUrls: ['./order-response.component.css']
+  styleUrls: ['./order-response.component.scss']
 })
 export class OrderResponseComponent implements OnInit {
 
@@ -34,9 +34,9 @@ export class OrderResponseComponent implements OnInit {
           },
           err => {
             console.log(err);
-            console.log("Error occurred");
+            console.log('Error occurred');
             this.loading = false;
-          })
+          });
     });
   }
 
