@@ -1,17 +1,23 @@
 <div class="container">
-  <div *ngFor="let product of products">
-    <table align="center" class="mat-table">
-      <td align="middle">
-      <tr>{{product.sellingItem}}</tr>
-      <tr>{{product.description}}</tr>
-      <tr><label>Price : </label>{{product.currency}} {{product.price}}</tr>
-      <tr><label>Available : </label>{{product.availableAmount}}</tr>
-      <tr><label>Available Until : </label>{{product.validUntil}}</tr>
-      <tr><button class="btn btn-primary" (click)="this.orderNow(product.id)">Order Now</button></tr>
-      </td>
-      <td>
-        <img align="middle" height="150" width="150" src={{product.image}} alt='image'>
-      </td>
-    </table>
+  <div class="card">
+    <div class="card-body">
+      <ul class="list-group">
+        <li *ngFor="let product of products" class="list-group-item">
+          <div class="row">
+            <div class="col-3">
+              <img class="img-fluid" src={{product.image}} alt='image'>
+            </div>
+            <div class="col">
+              <h5 class="card-title">{{product.sellingItem}}</h5>
+              <p>{{product.description}}</p>
+              <h4 class="font-weight-bold">{{product.currency}} {{product.price}}</h4>
+              Available : {{product.availableAmount}} <br>
+              Available Until : {{product.validUntil}}
+              <button type="button" class="btn btn-primary float-right" (click)="orderNow(product.id)">Order Now</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

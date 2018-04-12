@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../_model/product";
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import { Product } from '../model/product';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  products : Product [];
-  loading : boolean;
-  orderPlacementUrl : string;
+  products: Product [];
+  loading: boolean;
+  orderPlacementUrl: string;
 
-  constructor(private router: Router, private httpClient:HttpClient) { }
+  constructor(private router: Router, private httpClient: HttpClient) {
+  }
 
   ngOnInit() {
     this.orderPlacementUrl = 'order/place/';
