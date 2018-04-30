@@ -28,15 +28,17 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.order = <Order>{customer: <Customer>{}};
     this.product = <Product>{};
     this.sub = this.route.params.subscribe(params => {
       this.productId = +params['productId']; // (+) converts string 'id' to a number
 
-      this.httpClient.get(environment.api_url + '/sellitem/load/' + this.productId)
+      this.httpClient.get(environment.api_url + '/product/load/' + this.productId)
         .subscribe(
           data => {
             const result = <Product>data;
             this.product = result;
+            this.order.currency = this.product.currency;
           },
           err => {
             console.log('Error occurred');
@@ -45,10 +47,7 @@ export class OrderComponent implements OnInit {
 
     });
 
-    this.order = <Order>{customer: <Customer>{}};
-
     this.order.orderItemId = this.productId;
-    this.order.currency = 'Rs';
     this.order.paymentStatus = 'WAITING';
     this.order.paymentType = 'CASH';
 
